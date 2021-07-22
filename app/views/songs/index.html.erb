@@ -1,5 +1,5 @@
-<h1>Model</h1>
+<h1>Songs</h1>
 
-<% @model.each do |model|%>
-    <%= link_to model.name model_path(model) %>
+<% @songs.each do |song|%>
+    <p><%= link_to song.name, song_path(song.id) %></p>
 <%end%>

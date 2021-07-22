@@ -1,5 +1,5 @@
-<h1>Model</h1>
+<h1>Genres</h1>
 
-<% @model.each do |model|%>
-    <%= link_to model.name model_path(model) %>
+<% @genres.each do |genre|%>
+    <%= link_to genre.name genre_path(genre) %>
 <%end%>
