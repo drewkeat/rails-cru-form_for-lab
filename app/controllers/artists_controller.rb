@@ -1,7 +1,30 @@
 class ArtistsController < ApplicationController
 
-    # navigate artist pages shows the name on the show page in a h1 tag
-    # navigate artist pages to artist pages
-    # navigate artist pages shows the bio on the show page in a p tag
+    def new
+        @artist = Artist.new
+    end
+
+    def create
+        @artist = Artist.create(artist_params)
+        redirect_to artist_path(@artist)
+    end
+
+    def show
+        @artist = Artist.find(params[:id])
+    end
+
+    def edit
+        @artist = Artist.find(params[:id])
+    end
+
+    def update
+        @artist = Artist.find(params[:id])
+        @artist.update(artist_params)
+        redirect_to artist_path(@artist)
+    end
+    
+    def artist_params
+        params.require(:artist).permit(:name, :bio)
+    end
     
 end
